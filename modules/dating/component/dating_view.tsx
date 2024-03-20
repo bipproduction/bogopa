@@ -4,7 +4,7 @@ import {HStack} from '@gluestack-ui/themed';
 import {FavouriteIcon} from '@gluestack-ui/themed';
 import {Box, Text} from '@gluestack-ui/themed';
 import React, {useMemo, useState} from 'react';
-import {ImageBackground} from 'react-native';
+import {ImageBackground, StyleSheet} from 'react-native';
 import {View} from 'react-native';
 import TinderCard from 'react-tinder-card';
 
@@ -81,8 +81,9 @@ export default function DatingView({}: any) {
               alignItems: 'center',
               justifyContent: 'center',
               width: '100%',
+              height: 'auto',
             }}>
-            <View style={{width: '90%', maxWidth: 360, height: 550}}>
+            <View style={{width: '100%', maxWidth: 360, height: 550}}>
               {characters.map((character, index) => (
                 <TinderCard
                   ref={childRefs[index]}
@@ -95,7 +96,7 @@ export default function DatingView({}: any) {
                         width: '100%',
                         height: '100%',
                         overflow: 'hidden',
-                        borderRadius: 20,
+                        borderRadius: 40 / 2,
                       }}
                       source={character.img}>
                       <Text
@@ -194,7 +195,7 @@ export default function DatingView({}: any) {
     </>
   );
 }
-const styles = {
+const styles = StyleSheet.create({
   card: {
     position: 'absolute',
     backgroundColor: '#fff',
@@ -207,4 +208,4 @@ const styles = {
     borderRadius: 20,
     resizeMode: 'cover',
   },
-};
+});
