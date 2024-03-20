@@ -251,7 +251,7 @@ export default function ViewRoomChat({navigation}: any) {
               onPress={() => {
                 sendMessage();
               }}>
-              <Icon as={SendHorizonal} size="xl" mt={1} color="#B347B5" />
+              <Icon as={SendHorizonal} size="xl" mt={1} color="#545252" />
             </TouchableOpacity>
           </View>
         </View>
@@ -277,10 +277,11 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     marginHorizontal: 14,
-    backgroundColor: '#fff',
-    borderRadius: 10,
+    backgroundColor: '#C7C7C7',
+    borderRadius: 30,
     borderColor: '#B347B5',
     borderStyle: 'solid',
+    color: '#ffffff',
   },
   messageInput: {
     height: 40,

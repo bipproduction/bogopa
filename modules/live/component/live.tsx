@@ -20,6 +20,7 @@ export default function Live() {
   const layout = useWindowDimensions();
 
   const [index, setIndex] = React.useState(0);
+
   const [routes] = React.useState([
     {key: 'first', title: 'Rekomendasi'},
     {key: 'second', title: 'Disekitar'},

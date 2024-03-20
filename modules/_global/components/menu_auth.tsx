@@ -13,7 +13,7 @@ import {
 } from '../../auth';
 import MenuUtama from './menu_utama';
 import {ViewPengaturan} from '../../dating';
-import {ViewLive} from '../../live';
+import {ViewLive, ViewLiveSelesai, ViewMulaiLive} from '../../live';
 import {SearchUser} from '../../chat';
 import {
   SettingProfile,
@@ -108,10 +108,29 @@ export default function MenuAuth() {
         <Stack.Screen
           options={{
             headerStyle: {backgroundColor: '#f5d0fe'},
-            statusBarColor: '#f5d0fe',
+            // statusBarColor: '#f5d0fe',
+            headerShown: false,
           }}
           name="New Live"
           component={ViewLive}
+        />
+        <Stack.Screen
+          options={{
+            headerStyle: {backgroundColor: '#f5d0fe'},
+            // statusBarColor: '#f5d0fe',
+            headerShown: false,
+          }}
+          name="LiveSelesai"
+          component={ViewLiveSelesai}
+        />
+        <Stack.Screen
+          options={{
+            headerStyle: {backgroundColor: '#f5d0fe'},
+            // statusBarColor: '#f5d0fe',
+            headerShown: false,
+          }}
+          name="MulaiLive"
+          component={ViewMulaiLive}
         />
         <Stack.Screen
           options={{
