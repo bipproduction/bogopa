@@ -25,6 +25,7 @@ import {
 } from '../../profile';
 import ViewRoomChat from '../../chat/component/view_room_chat';
 import ViewProfileUser from '../../chat/component/view_profile_user';
+import SettingUser from './setting_user';
 
 export default function MenuAuth() {
   const Stack = createNativeStackNavigator();
@@ -210,6 +211,15 @@ export default function MenuAuth() {
           }}
           name="Langganan"
           component={ViewLangganan}
+        />
+        <Stack.Screen
+          options={{
+            headerStyle: {backgroundColor: '#f5d0fe'},
+            statusBarColor: '#f5d0fe',
+            headerShown: false,
+          }}
+          name="SettingUser"
+          component={SettingUser}
         />
       </Stack.Navigator>
     </NavigationContainer>

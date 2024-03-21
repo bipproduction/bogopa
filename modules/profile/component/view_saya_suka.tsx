@@ -1,12 +1,14 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable react/no-unstable-nested-components */
-import {Button, ButtonText, Icon, Text} from '@gluestack-ui/themed';
+import {Button, ButtonText, HStack, Icon, Text} from '@gluestack-ui/themed';
+import {VStack} from '@gluestack-ui/themed';
 import {Box} from '@gluestack-ui/themed';
-import {ArrowLeft, Star} from 'lucide-react-native';
-import React, {useEffect} from 'react';
+import {ArrowLeft, Star, X} from 'lucide-react-native';
+import React, {useEffect, useState} from 'react';
 import {Image} from 'react-native';
 import {ScrollView, StyleSheet, TouchableOpacity} from 'react-native';
 import {View} from 'react-native';
+import Modal from 'react-native-modal';
 
 const db = [
   {
@@ -72,6 +74,9 @@ const db = [
 ];
 
 export default function ViewSayaSuka({navigation}: any) {
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const handleModal = () => setIsModalVisible(() => !isModalVisible);
+
   useEffect(() => {
     navigation.setOptions({
       title: '',
@@ -117,7 +122,7 @@ export default function ViewSayaSuka({navigation}: any) {
                 {db.map(data => {
                   return (
                     <View style={styles.item} key={data.id}>
-                      <TouchableOpacity>
+                      <TouchableOpacity onPress={handleModal}>
                         <Box>
                           <Image
                             style={{
@@ -181,6 +186,7 @@ export default function ViewSayaSuka({navigation}: any) {
               borderRadius={10}
               bgColor="#B347B5"
               isFocusVisible={false}
+              onPress={handleModal}
               style={{position: 'absolute', bottom: 20}}
               width={'$full'}>
               <ButtonText>Buka “Suka” sekarang </ButtonText>
@@ -188,6 +194,126 @@ export default function ViewSayaSuka({navigation}: any) {
           </Box>
         </Box>
       </Box>
+      <Modal isVisible={isModalVisible} coverScreen={true}>
+        <View style={{backgroundColor: '#B347B5', borderRadius: 40 / 2}}>
+          <HStack justifyContent="flex-end" p={15}>
+            <TouchableOpacity onPress={handleModal}>
+              <Icon as={X} size="xl" color="white" />
+            </TouchableOpacity>
+          </HStack>
+          <VStack alignItems="center" space="3xl">
+            <Text fontSize={20} fontWeight="$bold" color="white">
+              PREMIUM
+            </Text>
+            <View
+              style={{
+                width: 135,
+                height: 135,
+                borderRadius: 100,
+                backgroundColor: 'white',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}>
+              <Image
+                style={{
+                  width: 130,
+                  height: 130,
+                  borderRadius: 100,
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}
+                source={{uri: 'https://i.pravatar.cc/1000?img=3'}}
+              />
+            </View>
+          </VStack>
+          <HStack justifyContent="space-between" p={10} pt={50}>
+            <Box bg="#373737" p={18} rounded={20}>
+              <VStack alignItems="center">
+                <Text color="#D1B378" fontSize={40} fontWeight="$bold">
+                  12
+                </Text>
+                <Text fontSize={10} color="#D1B378">
+                  bulan
+                </Text>
+                <Text fontSize={10} mt={20} color="#D1B378">
+                  Rp 100.000/bln
+                </Text>
+                <Text fontSize={10} mt={25} color="#D1B378">
+                  Rp 1.300.000
+                </Text>
+              </VStack>
+            </Box>
+            <HStack>
+              <Box
+                bg="#373737"
+                p={8}
+                pl={15}
+                pr={15}
+                rounded={20}
+                style={{
+                  position: 'absolute',
+                  zIndex: 999,
+                  bottom: 168,
+                  left: 19,
+                }}>
+                <Text fontSize={8} color="#FFFFFF">
+                  Hemat 20%
+                </Text>
+              </Box>
+              <Box bg="#C5C5C5" p={18} rounded={20}>
+                <VStack alignItems="center">
+                  <Text color="#444040" fontSize={40} fontWeight="$bold">
+                    3
+                  </Text>
+                  <Text fontSize={10} color="#444040">
+                    bulan
+                  </Text>
+                  <Text fontSize={10} mt={20} color="#444040">
+                    Rp 134.000/bln
+                  </Text>
+                  <Text
+                    fontSize={13}
+                    mt={25}
+                    color="#444040"
+                    fontWeight="$bold">
+                    Rp 459.000
+                  </Text>
+                </VStack>
+              </Box>
+            </HStack>
+            <Box bg="#373737" p={18} rounded={20}>
+              <VStack alignItems="center">
+                <Text color="#D1B378" fontSize={40} fontWeight="$bold">
+                  1
+                </Text>
+                <Text fontSize={10} color="#D1B378">
+                  bulan
+                </Text>
+                <Text fontSize={10} mt={20} color="#D1B378">
+                  Rp 199.000/bln
+                </Text>
+                <Text fontSize={11} mt={25} color="#D1B378">
+                  Rp 199.000
+                </Text>
+              </VStack>
+            </Box>
+          </HStack>
+          <Box p={15} pt={30}>
+            <Button
+              size="lg"
+              variant="solid"
+              isDisabled={false}
+              borderRadius={10}
+              bgColor="#C5C5C5"
+              isFocusVisible={false}
+              width={'$full'}>
+              <ButtonText color="$black">
+                Rp 459.000 Dapatkan Premium{' '}
+              </ButtonText>
+            </Button>
+          </Box>
+        </View>
+      </Modal>
     </>
   );
 }
