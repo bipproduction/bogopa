@@ -53,7 +53,7 @@ export default function MenuUtama({navigation}: any) {
                 variant="link"
                 pr="$4.5"
                 onPress={() =>
-                  navigation.navigate('Pengaturan', {name: 'Submit'})
+                  navigation.navigate('SettingUser', {showLogout: false})
                 }>
                 <ButtonIcon as={MenuIcon} size="xl" color="$black" />
               </Button>
@@ -128,7 +128,7 @@ export default function MenuUtama({navigation}: any) {
                 variant="link"
                 pr="$4.5"
                 onPress={() =>
-                  navigation.navigate('PengaturanProfile', {name: 'Submit'})
+                  navigation.navigate('SettingUser', {showLogout: true})
                 }>
                 <ButtonIcon as={SettingsIcon} size="xl" color="$black" />
               </Button>

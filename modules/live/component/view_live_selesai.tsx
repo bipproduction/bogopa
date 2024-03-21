@@ -12,7 +12,7 @@ export default function ViewLiveSelesai({navigation}: any) {
       <Box bgColor="$black" h={'$full'}>
         <Box style={{padding: 15}}>
           <TouchableOpacity
-            style={{paddingRight: 10}}
+            style={{paddingRight: 10, width: 20}}
             onPress={() => {
               navigation.navigate('MenuUtama');
             }}>
