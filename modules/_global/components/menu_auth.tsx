@@ -18,6 +18,7 @@ import {SearchUser} from '../../chat';
 import {
   SettingProfile,
   ViewDisukai,
+  ViewEditInfo,
   ViewInfoProfile,
   ViewLangganan,
   ViewPengunjung,
@@ -179,6 +180,15 @@ export default function MenuAuth() {
           }}
           name="InfoProfile"
           component={ViewInfoProfile}
+        />
+        <Stack.Screen
+          options={{
+            headerStyle: {backgroundColor: '#f5d0fe'},
+            statusBarColor: '#f5d0fe',
+            headerShown: false,
+          }}
+          name="EditInfo"
+          component={ViewEditInfo}
         />
         <Stack.Screen
           options={{
