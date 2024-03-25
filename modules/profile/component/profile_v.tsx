@@ -9,7 +9,7 @@ import {
   Text,
 } from '@gluestack-ui/themed';
 import React from 'react';
-import {Image, ScrollView, TouchableOpacity, View} from 'react-native';
+import {Image, ScrollView, TouchableOpacity} from 'react-native';
 import ViewKartuPelanggan from './view_kartu_pelanggan';
 import {BadgeCheck, Gem, Smile, UserSearch, Users} from 'lucide-react-native';
 
